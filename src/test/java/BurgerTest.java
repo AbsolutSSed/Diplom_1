@@ -27,8 +27,8 @@ public class BurgerTest {
 
     @Test
     public void setBunsWithStab() {
-        Mockito.lenient().when(bunMock.getName()).thenReturn("Bun");
-        Mockito.lenient().when(bunMock.getPrice()).thenReturn(123f);
+        Mockito.lenient().when(bunMock.getName()).thenReturn("Булка");
+        Mockito.lenient().when(bunMock.getPrice()).thenReturn(1223f);
         burger.setBuns(bunMock);
         assertEquals(bunMock, burger.bun);
     }
@@ -36,8 +36,8 @@ public class BurgerTest {
     @Test
     public void addIngredientWithStab() {
         Mockito.lenient().when(ingredientMock.getType()).thenReturn(IngredientType.FILLING);
-        Mockito.lenient().when(ingredientMock.getName()).thenReturn("Chili");
-        Mockito.lenient().when(ingredientMock.getPrice()).thenReturn(0.01f);
+        Mockito.lenient().when(ingredientMock.getName()).thenReturn("Большая котлета - сатурн");
+        Mockito.lenient().when(ingredientMock.getPrice()).thenReturn(0.71f);
         burger.addIngredient(ingredientMock);
         assertEquals(ingredientMock, burger.ingredients.get(0));
     }
@@ -45,8 +45,8 @@ public class BurgerTest {
     @Test
     public void removeIngredientWithStab() {
         Mockito.lenient().when(ingredientMock.getType()).thenReturn(IngredientType.SAUCE);
-        Mockito.lenient().when(ingredientMock.getName()).thenReturn("Sauce candy");
-        Mockito.lenient().when(ingredientMock.getPrice()).thenReturn(9876f);
+        Mockito.lenient().when(ingredientMock.getName()).thenReturn("Чили-соус");
+        Mockito.lenient().when(ingredientMock.getPrice()).thenReturn(476f);
         burger.addIngredient(ingredientMock);
         burger.removeIngredient(0);
         assertEquals(0, burger.ingredients.size());
@@ -56,21 +56,21 @@ public class BurgerTest {
     public void moveIngredientWithStab() {
         Ingredient secondIngredientMock = mock(Ingredient.class);
         Mockito.lenient().when(ingredientMock.getPrice()).thenReturn(3.14f);
-        Mockito.when(ingredientMock.getName()).thenReturn("proverka");
+        Mockito.when(ingredientMock.getName()).thenReturn("test");
         Mockito.lenient().when(ingredientMock.getType()).thenReturn(IngredientType.FILLING);
         Mockito.lenient().when(secondIngredientMock.getPrice()).thenReturn(0.14f);
         Mockito.lenient().when(secondIngredientMock.getType()).thenReturn(IngredientType.FILLING);
-        Mockito.lenient().when(secondIngredientMock.getName()).thenReturn("VovaVovaChuma");
+        Mockito.lenient().when(secondIngredientMock.getName()).thenReturn("Rocket#16");
         burger.addIngredient(ingredientMock);
         burger.addIngredient(secondIngredientMock);
         burger.moveIngredient(0, 1);
-        assertEquals("proverka", burger.ingredients.get(1).getName());
+        assertEquals("test", burger.ingredients.get(1).getName());
 
     }
     @Test
     public void getPrice() {
-        Mockito.lenient().when(bunMock.getName()).thenReturn("Norm");
-        Mockito.lenient().when(ingredientMock.getName()).thenReturn("Watermelon sauce");
+        Mockito.lenient().when(bunMock.getName()).thenReturn("Capybara");
+        Mockito.lenient().when(ingredientMock.getName()).thenReturn("Capybara sauce");
         Mockito.when(bunMock.getPrice()).thenReturn(300f);
         Mockito.when(ingredientMock.getPrice()).thenReturn(100f);
         Mockito.lenient().when(ingredientMock.getType()).thenReturn(IngredientType.SAUCE);
